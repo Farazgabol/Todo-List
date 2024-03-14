@@ -1,0 +1,30 @@
+<!-- layout_edit_text.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#EAB71E">
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter data 1"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter data 2"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CDA11B"
+        android:text="Add Task" />
+</LinearLayout>
