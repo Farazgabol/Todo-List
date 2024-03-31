@@ -52,10 +52,10 @@
         app:layout_constraintVertical_bias="0.12" />
 
     <TextView
-        android:id="@+id/signUpRedirect"
+        android:id="@+id/txtSignup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Already registered? Login"
+        android:text="Create a new account"
         android:textAlignment="center"
         android:textColor="#FF9800"
         android:textSize="18sp"

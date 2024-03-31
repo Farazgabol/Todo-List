@@ -8,8 +8,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo_list1.Item
+import com.example.todo_list1.Login
 import com.example.todo_list1.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class MyAdapter(private val dataList: MutableList<Item>) :
@@ -17,6 +19,7 @@ class MyAdapter(private val dataList: MutableList<Item>) :
 
     // Firebase database reference
     private lateinit var myRecord: DatabaseReference
+    private lateinit var auth: FirebaseAuth
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var textView: TextView = itemView.findViewById(R.id.textView)
@@ -106,7 +109,12 @@ class MyAdapter(private val dataList: MutableList<Item>) :
 
     init {
         // Initialize Firebase database reference
-        myRecord = FirebaseDatabase.getInstance().getReference("Todo List")
+
+        auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            val userId = currentUser.uid
+        myRecord = FirebaseDatabase.getInstance().getReference("Users").child(userId).child("todo_lists")
         myRecord.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 dataList.clear()
@@ -123,3 +131,4 @@ class MyAdapter(private val dataList: MutableList<Item>) :
         })
     }
 }
+    }
